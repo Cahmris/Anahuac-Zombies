@@ -17,3 +17,15 @@ config/icon="res://icon.svg"
 [rendering]
 
 renderer/rendering_method="mobile"
+
+[xogot]
+
+project/editorState=[{
+"column": 0,
+"current": true,
+"line": 27,
+"path": "res://Documents/anahuac_zombies_player.gd",
+"type": "file"
+}]
+project/breakpoints={}
+project/disabled_breakpoints={}
