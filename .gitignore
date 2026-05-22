@@ -1,2 +1,9 @@
-# Godot 4+ specific ignores
+# Godot-specific overrides
 .godot/
+*.translation
+
+# Mono-specific overrides if you ever switch to C# (optional but safe)
+.mono/
+data_MonoAndroid/
+data_MonoGDAndroid/
+
