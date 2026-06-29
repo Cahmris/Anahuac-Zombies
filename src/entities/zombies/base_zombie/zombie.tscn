@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c74q6k36paa6l"]
+
+[ext_resource type="Script" uid="uid://b0wjva23bqbj3" path="res://src/entities/zombies/base_zombie/zombie.gd" id="1_caw1j"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_tfoux"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_lpqtq"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_fx4i3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eg3g1"]
+
+[node name="Zombie" type="CharacterBody2D" unique_id=1297341982]
+script = ExtResource("1_caw1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=582974161]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2086408226]
+shape = SubResource("CapsuleShape2D_eg3g1")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=406620841]
+
+[node name="StateChart" type="Node" parent="." unique_id=353642031]
+script = ExtResource("2_tfoux")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="MotionState" type="Node" parent="StateChart" unique_id=1002581443]
+script = ExtResource("3_lpqtq")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="Idle" type="Node" parent="StateChart/MotionState" unique_id=1554321874]
+script = ExtResource("4_fx4i3")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="Chasing" type="Node" parent="StateChart/MotionState" unique_id=548938708]
+script = ExtResource("4_fx4i3")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
