@@ -1,9 +1,18 @@
-# Godot-specific overrides
+# Godot-specific internal binary and local cache structures
 .godot/
 *.translation
 
-# Mono-specific overrides if you ever switch to C# (optional but safe)
-.mono/
-data_MonoAndroid/
-data_MonoGDAndroid/
+# Mono/C# specific structures (if you ever test C# builds, keep it blocked)
+.godot/mono/
+Anahuac-Zombies.csproj
+Anahuac-Zombies.sln
 
+# OS-specific hidden clutter files (Crucial for mobile syncing)
+.directory
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Optional text editor workspace files
+.vscode/
+.idea/
