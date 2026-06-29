@@ -15,12 +15,22 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Anahuac Zombies"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/copilot-advanced/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")
+
+[gemini_gd]
+
+gemini_configuration/api_key="local"
+
+[godot_ai]
+
+provider="Ollama"
+ollama_url="http://127.0.0.1:11434"
+model="deepseek-coder-v2"
 
 [rendering]
 
