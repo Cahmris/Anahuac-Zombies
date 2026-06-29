@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c83o8kcthdy1b"]
+
+[ext_resource type="Script" uid="uid://cuna53qiboy5w" path="res://src/entities/player/player.gd" id="1_4m8ck"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eg3g1"]
+
+[node name="Player" type="CharacterBody2D" unique_id=136643352]
+script = ExtResource("1_4m8ck")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1336869429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=181291692]
+shape = SubResource("CapsuleShape2D_eg3g1")
+
+[node name="GunTip" type="Marker2D" parent="." unique_id=1816551268]
