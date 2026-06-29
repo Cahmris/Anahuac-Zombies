@@ -18,6 +18,11 @@ config/name="Anahuac Zombies"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogueManager="*uid://c3rodes2l3gxb"
+PhantomCameraManager="*uid://duq6jhf6unyis"
+
 [display]
 
 window/size/viewport_width=1920
@@ -27,7 +32,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_retro/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [gemini_gd]
 
@@ -37,7 +42,7 @@ gemini_configuration/api_key="local"
 
 provider="Ollama"
 ollama_url="http://127.0.0.1:11434"
-model="deepseek-coder-v2"
+model="phi4"
 
 [input]
 

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b5b0w1kv47osl"]
+
+[ext_resource type="PackedScene" uid="uid://c83o8kcthdy1b" path="res://src/entities/player/player.tscn" id="1_avv2o"]
+[ext_resource type="Script" uid="uid://bsxtcu7qwv1f3" path="res://src/core/game.gd" id="1_x62ka"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_ivtyw"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_x62ka"]
+
+[sub_resource type="Resource" id="Resource_w61mg"]
+script = ExtResource("3_x62ka")
+
+[node name="Main" type="Node2D" unique_id=399671884]
+script = ExtResource("1_x62ka")
+
+[node name="FloorLayer" type="TileMapLayer" parent="." unique_id=1037084336]
+
+[node name="Entities" type="Node2D" parent="." unique_id=1408872361]
+
+[node name="Player" parent="Entities" unique_id=136643352 instance=ExtResource("1_avv2o")]
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=2141067217]
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=2006553951 node_paths=PackedStringArray("follow_target")]
+top_level = true
+script = ExtResource("2_ivtyw")
+follow_mode = 1
+follow_target = NodePath("../Entities/Player")
+tween_resource = SubResource("Resource_w61mg")
+follow_damping = true
+follow_axis_lock = 3
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
