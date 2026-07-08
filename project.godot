@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DialogueManager="*uid://c3rodes2l3gxb"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
@@ -33,7 +32,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_retro/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_retro/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [gemini_gd]
 
@@ -43,7 +42,7 @@ gemini_configuration/api_key="local"
 
 provider="Ollama"
 ollama_url="http://127.0.0.1:11434"
-model="phi4"
+model="deepseek-coder-v2"
 
 [input]
 

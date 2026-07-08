@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 		nav_agent.target_position = target_player.global_position
 
 # Called by the State Chart when the 'Chasing' state is active
-func _on_chasing_state_processing(delta: float) -> void:
+func _on_chasing_state_processing(_delta):
 	if nav_agent.is_navigation_finished():
 		velocity = Vector2.ZERO
 		return
@@ -45,3 +45,16 @@ func _on_detection_radius_body_entered(body: Node2D) -> void:
 func _on_detection_radius_body_exited(body: Node2D) -> void:
 	if body == target_player:
 		state_chart.send_event("player_lost")
+
+
+func _on_chasing_state_physics_processing(_delta):
+	if target_player:
+		# 1. Find the direction to the player
+		var direction = global_position.direction_to(target_player.global_position)
+		
+		# 2. Look at the player (optional, makes the sprite rotate towards them)
+		look_at(target_player.global_position)
+		
+		# 3. Apply velocity and move!
+		velocity = direction * speed
+		move_and_slide()

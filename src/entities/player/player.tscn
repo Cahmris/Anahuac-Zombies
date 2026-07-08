@@ -12,4 +12,4 @@ script = ExtResource("1_4m8ck")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=181291692]
 shape = SubResource("CapsuleShape2D_eg3g1")
 
-[node name="GunTip" type="Marker2D" parent="." unique_id=1816551268]
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1816551268]
