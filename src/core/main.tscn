@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b5b0w1kv47osl"]
 
 [ext_resource type="PackedScene" uid="uid://c83o8kcthdy1b" path="res://src/entities/player/player.tscn" id="1_avv2o"]
-[ext_resource type="Script" uid="uid://bsxtcu7qwv1f3" path="res://src/core/game.gd" id="1_x62ka"]
+[ext_resource type="Script" uid="uid://sflivrpqyj3g" path="res://src/core/main.gd" id="1_ivtyw"]
 [ext_resource type="PackedScene" uid="uid://c74q6k36paa6l" path="res://src/entities/zombies/base_zombie/zombie.tscn" id="3_w61mg"]
 
 [node name="Main" type="Node2D" unique_id=399671884]
-script = ExtResource("1_x62ka")
+script = ExtResource("1_ivtyw")
 
 [node name="FloorLayer" type="TileMapLayer" parent="." unique_id=1037084336]
 

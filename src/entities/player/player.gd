@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @export_category("Combat Attributes")
 @export var active_weapon: String = "pistol" # Types: "pistol", "shotgun", "machete"
+@export var fire_rate: float = 0.5 # Half a second between shots/swings
+var time_since_last_attack: float = 0.0 # Tracks the cooldown
 
 ## Mastery System Variables
 var distance_traveled_accumulator: float = 0.0
@@ -26,6 +28,9 @@ var weapon_mastery: Dictionary = {
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_aim_rotation()
+	
+	# Add delta to our timer every frame
+	time_since_last_attack += delta 
 	handle_weapon_inputs()
 
 ## Calculates responsive, normalized 2D movement grids and tracks step distance
@@ -65,11 +70,16 @@ func handle_aim_rotation() -> void:
 
 ## Catch mouse clicks or screen presses to handle attacks
 func handle_weapon_inputs() -> void:
-	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if active_weapon == "machete":
-			swing_melee_weapon()
-		else:
-			fire_ranged_weapon()
+	# Only allow an attack if our timer has surpassed the fire_rate
+	if time_since_last_attack >= fire_rate:
+		if Input.is_action_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			# Reset the timer immediately upon firing
+			time_since_last_attack = 0.0 
+			
+			if active_weapon == "machete":
+				swing_melee_weapon()
+			else:
+				fire_ranged_weapon()
 
 func fire_ranged_weapon() -> void:
 	print("Fired ranged weapon: ", active_weapon)
